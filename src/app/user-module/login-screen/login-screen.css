@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.page-container h1 {
+
+
+    margin-bottom: 20px;
+
+       }
+
+.page-container h3 {
+
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 16px;
+    font-weight: 400;
+
+       }
+
+.page-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    
+
+}
+
+.login-container {
+    width: 503px;/*Largura da tela*/
+    height:540px;/*Altura da tela*/
+    display: flex; /*Ativar o flex*/
+    flex-direction: column; /*Muda o flex para colunas*/
+    align-items: center; /*Centralizar horizontalmente*/
+    justify-content: center;/*Centralizar verticalmente*/
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 16px;
+.input{
+    display: flex;
+    flex-direction: column;
+}
+.input2{
+    display: flex;
+    flex-direction: column;
+    span{
+        flex-direction: row;
+        color: red;
+
+
+    }
+}
+
+}
+
+.inpt{
+
+    padding: 18px;
+    background-color:#F7F9FB;
+    width: 377px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+
+
+
+.login-container button {
+    background-color:#335CFF;
+    width: 377px;
+    padding: 18px;
+    border-radius: 10px;
+    color: #fffefe;
+    font-size:18px;
+    cursor: pointer;
+}
+
+.login-container img {
+margin-bottom: 48px;
+
+}
+
