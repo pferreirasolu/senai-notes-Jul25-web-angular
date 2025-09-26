@@ -5,7 +5,7 @@
 
 <main class="page-container"> <!-- Caixa maior-->
 
-    <div class="login-container">
+     <div class="login-container" [formGroup]="loginForm">
         <img class="logo" src="imgs/logo.png" alt="Logo do senai notes">
 
         <h1 Class="titulo">Welcome to Note</h1>
@@ -15,6 +15,8 @@
             <span>Email address</span>
             <div class="input"></div>
             <input class="inpt" type="email" placeholder="email@example.com" formControlName="email">
+            <span class="error-message">{{emailErrorMessage}}</span>
+
         </div>
         <div class="forgot">
             <span>Password</span>
@@ -22,9 +24,12 @@
         </div>
         <div class="input2">
             <input class="inpt" type="password" placeholder="" formControlName="password">
+            <span class="error-message">{{passwordErrorMessage}}</span>
         </div>
         <div class="login">
-            <button>Login</button>
+            <button (click)="onLoginClick()">Login</button>
+            <span class="message-success" style="color: green;">{{successLogin}}</span>
+        <span class="message-error"  style="color: red;">{{incorrectCredentials}}</span>
         </div>
         <div class="signup">
             <span>No account yet?</span>
