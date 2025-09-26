@@ -13,7 +13,7 @@
     font-size: 15px;
     margin-bottom: 40px;
     font-weight: 400;
-
+    color: #2B2B2B;
        }
 
 .page-container{
@@ -102,9 +102,15 @@ margin-bottom: 2px;
 
 }
 
-a{  
+.signup{  
     margin-top: 30px;
     width: 444px;
-    border-top:2px solid #ccc;
-    
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-top:1px solid #ccc;
+    gap: 10px;
+    font-weight: 400;
 }
