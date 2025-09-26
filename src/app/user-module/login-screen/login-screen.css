@@ -1,20 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-.page-container h1 {
+.login-container h1 {
 
 
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
        }
 
-.page-container h3 {
-
+.login-container h3 {
     font-weight: 400;
     font-size: 15px;
-    margin-bottom: 16px;
     font-weight: 400;
-
-       }
+    margin-bottom: 50px;
+}
 
 .page-container{
 
@@ -27,6 +25,14 @@
 
 }
 
+/* .login-container .logo{
+display: flex;
+margin-top: 20px;
+
+} */
+
+
+
 .login-container {
     width: 503px;/*Largura da tela*/
     height:540px;/*Altura da tela*/
@@ -36,21 +42,24 @@
     justify-content: center;/*Centralizar verticalmente*/
     border: 1px solid #ccc;
     border-radius: 10px;
-    margin-bottom: 16px;
 .input{
     display: flex;
     flex-direction: column;
+ 
 }
-.input2{
+.forgot{
     display: flex;
-    flex-direction: column;
-    span{
-        flex-direction: row;
-        color: red;
-
-
-    }
+    flex-direction: row;
+    justify-content: space-between;
+    width: 444px;
+    margin-bottom: 5px;
+    font-size: 14px;
 }
+.titulo h3{
+font-weight: 400;
+
+}
+
 
 }
 
@@ -58,26 +67,51 @@
 
     padding: 18px;
     background-color:#F7F9FB;
-    width: 377px;
+    width: 444px;
+    height: 42px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    margin-bottom: 16px;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 
 
 .login-container button {
     background-color:#335CFF;
-    width: 377px;
-    padding: 18px;
-    border-radius: 10px;
+     width: 444px;
+    height: 44px;
+    border-radius: 5px;
     color: #fffefe;
     font-size:18px;
     cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 16px;
+  
+
 }
 
 .login-container img {
-margin-bottom: 48px;
+margin-bottom: 30px;
 
 }
 
+.signup{
+
+    border-top: 1px solid #ccc;
+    width: 444px;
+    height: 36px;
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: 400;
+
+}
+
+
+.login-container .input span{
+
+    margin-bottom: 5px;
+    font-size: 14px;
+}
