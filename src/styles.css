@@ -7,5 +7,6 @@
     margin: 0px;/*margem externa*/
     box-sizing: border-box; /*Muda a estrutura de espaçamentos*/
     font-family: sans-serif;
+    outline: none;
     }
 

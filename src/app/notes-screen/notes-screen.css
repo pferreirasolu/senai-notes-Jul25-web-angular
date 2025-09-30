@@ -1,163 +1,254 @@
-/* Layout geral */
-.layout-container {
-  display: flex;
-  height: 100vh;
-  width: 100vw;
-  font-family: Arial, sans-serif;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    height: 70px;
+}
+
+.logotipo {
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.logotipo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-rigth {
+    display: flex;
+    align-items: center;
+}
+
+.ipt-container {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.ipt {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 44px;
+}
+
+.ipt i {
+    position: absolute;
+    left: 10px;
+    color: #666;
+    z-index: 1;
+}
+
+.ipt input {
+    padding: 8px 8px 8px 35px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 286px;
+    font-size: 9px;
+}
+
+.ipt input::placeholder {
+    font-size: 14px;
+}
+
+.ipt input:focus {
+    outline: none;
+    border-color: #4a7bff;
+    box-shadow: 0 0 0 2px rgba(74, 123, 255, 0.2);
+}
+
+.btn-create-notas button {
+    width: 15rem;
+}
+
+.btn-create-notas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24vw;
+}
+
+.fa-power-off {
+    font-size: 20px;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fa-power-off:hover {
+    color: #ff4a4a;
+}
+
+.menu-tela {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+.menu-notas {
+    width: 24vw;
+    height: 100vh;
+    border-right: 1px solid rgba(128, 128, 128, 0.3);
+    justify-items: center;
+}
+
+.card-container {
+    width: 300px;
+    height: 100px;
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.card-img {
+    border-radius: 10px;
+    width: 100px;
+    height: 85px;
+    border: 1px solid grey;
+    overflow: hidden;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-txt {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5px;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.card-date {
+    font-size: 12px;
+    color: gray;
+    margin-bottom: 8px;
+}
+
+.card-bts {
+    display: flex;
+    gap: 8px;
+}
+
+.card-bts span {
+    padding: 5px 7px;
+    border-radius: 5px;
+    font-size: 10px;
+    background-color: #808080;
+    color: white;
+}
+
+.btn-primary {
+    width: 250px;
+    height: 35px;
+    border-radius: 9px;
+}
+
+.tela {
+    width: 53vw;
+    border-right: 1px solid rgba(128, 128, 128, 0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tela-banner {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(128, 128, 128, 0.6);
+    border-radius: 9px;
+}
+
+.tela-title {
+    margin-top: 23px;
+    font-family: sans-serif;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.edited-tags {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.edited,
+.tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #333;
+    font-size: 14px;
+}
+
+.tela-description {
+    margin-top: 10px;
+    width: 100%;
+    height: 55vh;
+    background-color: #f5f9fa;
+    border-radius: 9px;
+    font-size: 16px;
+    margin-bottom: 12px;
+     border: none;
+}
+
+.tela-description textarea{
+    margin-top: 10px;
+    width: 100%;
+    height: 55vh;
+    background-color: #f5f9fa;
+    font-size: 16px;
+    border: transparent;
+}
+
+.txt-description {
+    padding: 12px;
 
 }
 
-/* SIDEBAR */
-/* Sidebar */
-.side-bar {
-  width: 260px;
-  background: #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-
+.tela-footer {
+    display: flex;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding-top: 10px;
 }
 
-/* Logo no topo */
-.side-bar .logo {
-  font-size: 22px;
-  margin-bottom: 30px;
+.tela-footer button {
+    width: 150px;
 }
 
-/* Menu lateral */
-.menu {
-  display: flex;
-  flex-direction: column;
-  /* Botões em coluna */
-  /* Espaço entre botões */
-}
-
-/* Botões */
-.menu .button {
-  background: transparent;
-  /* sem fundo fixo */
-  border: none;
-  /* sem borda */
-  font-size: 16px;
-  font-weight: 500;
-  text-align: left;
-  padding: 12px 15px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  /* espaço ícone-texto */
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-  text-decoration: none;
-}
-
-/* Efeito hover */
-.menu .button:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-
-
-/* ÁREA PRINCIPAL */
-.main-area {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* NAVBAR SUPERIOR */
-.top-bar {
-  height: 60px;
-  background: #f5f5f5;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.top-bar .right-side {
-  display: flex;
-  align-items: center;
-}
-
-.icon-btn {
-  background: transparent;
-  border: none;
-  font-size: 18px;
-  margin: 0 5px;
-  cursor: pointer;
-}
-
-.profile {
-  display: flex;
-  align-items: center;
-  margin-left: 15px;
-  position: relative;
-}
-
-.profile img {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  margin-right: 8px;
-  cursor: pointer;
-}
-
-.profile .dropdown {
-  position: relative;
-}
-
-.profile .dropdown ul {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  list-style: none;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  padding: 5px 0;
-  width: 150px;
-}
-
-.profile .dropdown:hover ul {
-  display: block;
-}
-
-.profile .dropdown ul li {
-  padding: 8px 12px;
-}
-
-.profile .dropdown ul li a {
-  text-decoration: none;
-  color: #333;
-}
-
-/* PAINEL CENTRAL */
-.central-panel {
-  padding: 20px;
-  background: #fafafa;
-  flex: 1;
-}
-
-.ativo {
-  background-color: #e0e0e0;
-  font-weight: bold;
-}
-
-
-.cards {
-  display: flex;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.card {
-  background: white;
-  flex: 1;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-}
+.bts-footer {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+} 

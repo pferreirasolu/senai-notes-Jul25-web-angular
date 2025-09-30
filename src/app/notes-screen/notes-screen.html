@@ -1,40 +1,120 @@
-<div class="layout-container">
-
-  <!-- SIDEBAR -->
-  <aside class="side-bar">
-    <div class="menu-top">
-      <img src="imgs/logo.png" alt="Foto do usuário">     
-    </div>
-    <nav class="menu">
-      <a class="button" routerLink="/indicadores" routerLinkActive="ativo">NOTA 1</a>
-      <a class="button" routerLink="/pedidos" routerLinkActive="ativo">NOTA2</a>
-    </nav>
-
-  </aside>
-
-
-  <!-- ÁREA PRINCIPAL -->
-  <div class="main-area">
-
-    <!-- NAVBAR SUPERIOR -->
-    <header class="top-bar">
-      <div class="left-side">
-        <h1></h1>
-      </div>
-      <div class="right-side">
-         <input type="search">
-
-        <!-- Perfil do usuário -->
-        <div class="profile">        
-            <img src="imgs/Topbar_Item.png" alt="Foto do usuário">         
+<section class="section-container">
+    <section class="nav" style="">
+        <div class="logotipo" style="height: 40px; ">
+            <img src="imgs/logo.png" alt="">
         </div>
-      </div>
-    </header>
+        <div class="nav-rigth" style="display:flex; ">
+            <div class="ipt-container" style="display: flex; gap: 15px;">
+                <div class="ipt">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search by title, content, or tags..." style="height:44px;">
+                </div>
 
-    <!-- CONTEÚDO CENTRAL -->
-    <main class="central-panel">
-    </main>
+                <i class="fa-solid fa-power-off" style="height: 30px;"></i>
+
+            </div>
+
+        </div>
+    </section>
 
 
-  </div>
-</div>
+
+    <section class="menu-tela" style="display: flex; ">
+        <aside class="menu-notas" style="">
+            <div class="btn-create-notas">
+                <button class="btn btn-primary" style="margin: 25px 0;">
+                    + <span class="badge text-bg-secondary"> Create New Note</span>
+                </button>
+            </div>
+            <div class="card-container">
+                <div class="card-img">
+                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
+                </div>
+                <div class="card-txt">
+                    <div class="card-title">Título do card</div>
+                    <div class="card-date">28 sep 2025</div>
+                    <div class="card-bts">
+                        <span>Travel</span>
+                        <span>Personal</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card-img">
+                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
+                </div>
+                <div class="card-txt">
+                    <div class="card-title">Título do card</div>
+                    <div class="card-date">28 sep 2025</div>
+                    <div class="card-bts">
+                        <span>Travel</span>
+                        <span>Personal</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-container">
+                <div class="card-img">
+                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
+                </div>
+                <div class="card-txt">
+                    <div class="card-title">Título do card</div>
+                    <div class="card-date">28 sep 2025</div>
+                    <div class="card-bts">
+                        <span>Travel</span>
+                        <span>Personal</span>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        <aside class="tela">
+
+            <div class="tela-banner"></div>
+            <div class="tela-title">
+                <div class="create-title">
+                    <h2>Enter a title..</h2>
+                </div>
+                <div class="edited-tags">
+                    <div class="edited" style="font-family: sans-serif;">
+                        <img src="assets/imagens/Tag.png" alt="">
+                        <span>Last edited</span>
+
+                    </div>
+                    <div class="tags">
+                        <img src="assets/imagens/last.png" alt="">
+                        <span>Tags</span>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tela-description">
+                <div class="txt-description">
+                    <textarea placeholder="Start typing your note here…"></textarea>
+                </div>
+            </div>
+
+            <div class="tela-footer">
+                <div class="bts-footer">
+                    <div class="">
+                        <button class="btn btn-primary" style="margin: 25px 0;">
+                            Save <span class="badge text-bg-secondary">Note</span>
+                        </button>
+                    </div>
+                    <div class="bts2">
+                        <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </aside>
+        <aside class="tela-right"></aside>
+
+
+    </section>
+
+
+</section>
