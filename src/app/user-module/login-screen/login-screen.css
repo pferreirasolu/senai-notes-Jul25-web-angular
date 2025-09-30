@@ -115,3 +115,53 @@ margin-bottom: 30px;
     margin-bottom: 5px;
     font-size: 14px;
 }
+
+
+
+@media screen and (max-width:1366px) {
+    /*monitor pequeno  */
+    .login-container{
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    /* tablet  */
+}
+
+@media screen and (max-width:768px) {
+    /* celular */
+
+    .login-container{
+        align-items: center;
+        justify-content: center;
+    }
+    .inpt{
+        width: 222px;
+        height: 21px;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    .login-container{
+        
+        .forgot{
+
+        width: 215px;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+ 
+    }
+
+    .login-container button{
+        width: 222px;
+        height: 38px;
+
+    }
+    .signup{
+        width: 222px;
+    }
+}
