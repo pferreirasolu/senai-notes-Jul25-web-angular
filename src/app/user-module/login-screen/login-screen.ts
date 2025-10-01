@@ -73,7 +73,7 @@ incorrectCredentials:string;
        localStorage.setItem("meuId",meuId);
 
 
-       window.location.href ="chat";
+       window.location.href ="notes";
 
       } else {
         this.incorrectCredentials = "Credenciais incorretas!";
