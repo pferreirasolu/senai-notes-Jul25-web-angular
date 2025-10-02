@@ -117,51 +117,120 @@ margin-bottom: 30px;
 }
 
 
+@media screen and (max-width: 1366px) {
+    /*monitor pequeno*/
 
-@media screen and (max-width:1366px) {
-    /*monitor pequeno  */
-    .login-container{
-        align-items: center;
-        justify-content: center;
-    }
+  .login-container {
+    height: 70vh;
+    width: 30vw;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inpt {
+    width: 222px;
+    height: 21px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .login-container .forgot {
+    width: 215px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .login-container button {
+    width: 222px;
+    height: 38px;
+  }
+
+  .signup {
+    width: 222px;
+  }
 }
 
-@media screen and (max-width:1000px) {
-    /* tablet  */
+@media screen and (max-width: 1000px) {
+  /*tablet*/
+  .login-container {
+    width: 60vw;
+    height: 50vh;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login-container img {
+    width: 27vw;
+    height: 4vh;
+  }
+
+  .login-container h1 {
+    font-size: 45px;
+    font-weight: 400;
+  }
+
+  .login-container h3 {
+    font-size: 25px;
+  }
+
+  .inpt {
+    width: 335px;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  .login-container .forgot {
+    width: 330px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 22px;
+  }
+
+  .login-container button {
+    width: 335px;
+    height: 50px;
+  }
+
+  .signup {
+    width: 335px;
+    gap: 50px;
+    font-size: 22px;
+  }
 }
 
-@media screen and (max-width:768px) {
-    /* celular */
+@media screen and (max-width: 768px) {
+  .login-container {
+    width: 80vw;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .login-container{
-        align-items: center;
-        justify-content: center;
-    }
-    .inpt{
-        width: 222px;
-        height: 21px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-    }
-    .login-container{
-        
-        .forgot{
+  .inpt {
+    width: 222px;
+    height: 21px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
 
-        width: 215px;
-        margin-bottom: 5px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
- 
-    }
+  .login-container .forgot {
+    width: 215px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
-    .login-container button{
-        width: 222px;
-        height: 38px;
+  .login-container button {
+    width: 222px;
+    height: 38px;
+  }
 
-    }
-    .signup{
-        width: 222px;
-    }
+  .signup {
+    width: 222px;
+  }
 }
