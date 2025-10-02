@@ -70,20 +70,25 @@
 
         <aside class="tela">
 
-            <div class="tela-banner"></div>
+            <div class="tela-banner" (click)="triggerFileInput()"
+                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                <span>Click to upload an image</span>
+                <input type="file" accept="image/*" #fileInput style="display: none;"
+                    (change)="handleImageUpload($event)">
+            </div>
+
             <div class="tela-title">
                 <div class="create-title">
-                    <h2>Enter a title..</h2>
+                    <textarea name="titleNote" id="title" placeholder="Enter a title..."></textarea>
                 </div>
                 <div class="edited-tags">
                     <div class="edited" style="font-family: sans-serif;">
                         <img src="assets/imagens/Tag.png" alt="">
-                        <span>Last edited</span>
-
+                         <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: {{ dataHora }}</span>
                     </div>
                     <div class="tags">
                         <img src="assets/imagens/last.png" alt="">
-                        <span>Tags</span>
+                        <span>Tags:</span>
 
                     </div>
                 </div>
@@ -94,7 +99,6 @@
                     <textarea placeholder="Start typing your note here…"></textarea>
                 </div>
             </div>
-
             <div class="tela-footer">
                 <div class="bts-footer">
                     <div class="">
