@@ -2,16 +2,16 @@
 
 .page-container h1 {
 
-
-    margin-bottom: 10px;
+    font-size: 32PX;
+    margin-bottom: 5px;
 
        }
 
 .page-container h3 {
 
     font-weight: 400;
-    font-size: 15px;
-    margin-bottom: 40px;
+    font-size: 12px;
+    margin-bottom: 20px;
     font-weight: 400;
     color: #2B2B2B;
        }
@@ -28,8 +28,8 @@
 }
 
 .login-container {
-    width: 503px;/*Largura da tela*/
-    height:540px;/*Altura da tela*/
+    width: 390px;/*Largura da tela*/
+    height:550px;/*Altura da tela*/
     display: flex; /*Ativar o flex*/
     flex-direction: column; /*Muda o flex para colunas*/
     align-items: center; /*Centralizar horizontalmente*/
@@ -40,7 +40,7 @@
    
 }
 .login-container .logo{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .input{
@@ -65,10 +65,10 @@
 
 .inpt{
 
-    padding: 18px;
+    padding: 14px;
     background-color:#F7F9FB;
-    width: 444px;
-    height: 42px;
+    width: 300px;
+    height: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 16px;
@@ -80,9 +80,9 @@
 .login-container button {
     
     background-color:#335CFF;
-    width: 444px;
-    height: 44px;
-    padding: 10px;
+    width: 300px;
+    height: 30px;
+    padding: 5px;
     border-radius: 10px;
     color: #fffefe;
     font-size:18px;
@@ -91,20 +91,20 @@
 
 .login-container img {
     margin-top: 0px;
-margin-bottom: 2px;
+margin-bottom: 1px;
 
 }
 
 .least{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-size: 12px;
     font-weight: 400;
 
 }
 
 .signup{  
-    margin-top: 30px;
-    width: 444px;
+    margin-top: 20px;
+    width: 300px;
     height: 36px;
     display: flex;
     flex-direction: row;
