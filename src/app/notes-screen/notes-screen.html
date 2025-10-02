@@ -1,60 +1,21 @@
 <section class="section-container">
-  <section class="nav" style="">
-    <div class="logotipo" style="height: 40px;">
-      <img src="imgs/logo.png" alt="">
-      
-    </div>
-    
-  </section> 
-
-  <div class="layout-container">
-    <!-- SIDEBAR, MAIN AREA, etc... -->
-    <section class="menu-tela" style="display: flex;">
-      <!-- conteúdo aqui -->
-    </section>
-  </div>
-</section>
-
-<div class="layout-container">
-
-  <!-- SIDEBAR -->
-  <aside class="side-bar">
-    <div class="menu-top">
-      <img src="imgs/logo.png" alt="Foto do usuário">     
-    </div>
-    <nav class="menu">
-      <a class="button" routerLink="/indicadores" routerLinkActive="ativo">NOTA 1</a>
-      <a class="button" routerLink="/pedidos" routerLinkActive="ativo">NOTA2</a>
-    </nav>
-
-  </aside>
-
-
-  <!-- ÁREA PRINCIPAL -->
-  <div class="main-area">
-
-    <!-- NAVBAR SUPERIOR -->
-    <header class="top-bar">
-      <div class="left-side">
-        <h1></h1>
-      </div>
-      <div class="right-side">
-         
-
-        <!-- Perfil do usuário -->
-      
+    <section class="nav" style="">
+        <div class="logotipo" style="height: 40px; ">
+            <img src="assets/imagens/logo.png" alt="">
+        </div>
+        <div class="nav-rigth" style="display:flex; ">
             <div class="ipt-container" style="display: flex; gap: 15px;">
                 <div class="ipt">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search by title, content, or tags..." style="height:44px;">
+                    <input type="text" placeholder="Search by title, content, or tags..." style="height:42px;">
                 </div>
 
-                <i class="fa-solid fa-power-off" style="height: 30px;"></i>
+                <a href=""><i class="fa-solid fa-power-off" style="height: 30px;"></i></a>
 
             </div>
 
         </div>
-    
+    </section>
 
 
 
@@ -109,20 +70,25 @@
 
         <aside class="tela">
 
-            <div class="tela-banner"></div>
+            <div class="tela-banner" (click)="triggerFileInput()"
+                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                <span>Click to upload an image</span>
+                <input type="file" accept="image/*" #fileInput style="display: none;"
+                    (change)="handleImageUpload($event)">
+            </div>
+
             <div class="tela-title">
                 <div class="create-title">
-                    <h2>Enter a title..</h2>
+                    <textarea name="titleNote" id="title" placeholder="Enter a title..."></textarea>
                 </div>
                 <div class="edited-tags">
                     <div class="edited" style="font-family: sans-serif;">
                         <img src="assets/imagens/Tag.png" alt="">
-                        <span>Last edited</span>
-
+                         <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: {{ dataHora }}</span>
                     </div>
                     <div class="tags">
                         <img src="assets/imagens/last.png" alt="">
-                        <span>Tags</span>
+                        <span>Tags:</span>
 
                     </div>
                 </div>
@@ -133,7 +99,6 @@
                     <textarea placeholder="Start typing your note here…"></textarea>
                 </div>
             </div>
-
             <div class="tela-footer">
                 <div class="bts-footer">
                     <div class="">
@@ -155,3 +120,5 @@
 
     </section>
 
+
+</section>
