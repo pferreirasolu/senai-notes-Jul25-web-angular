@@ -1,258 +1,269 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  height: 70px;
 }
 
 .logotipo {
-    height: 40px;
-    display: flex;
-    align-items: center;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .logotipo img {
-    height: 100%;
-    width: auto;
-    object-fit: contain;
+  height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav-rigth {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .ipt-container {
-    display: flex;
-    gap: 15px;
-    align-items: center;
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
 
 .ipt {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 44px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
 }
 
 .ipt i {
-    position: absolute;
-    left: 10px;
-    color: #666;
-    z-index: 1;
+  position: absolute;
+  left: 10px;
+  color: #666;
+  z-index: 1;
 }
 
 .ipt input {
-    padding: 8px 8px 8px 35px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    width: 286px;
-    font-size: 9px;
+  padding: 8px 8px 8px 35px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 286px;
+  font-size: 9px;
 }
 
 .ipt input::placeholder {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .ipt input:focus {
-    outline: none;
-    border-color: #4a7bff;
-    box-shadow: 0 0 0 2px rgba(74, 123, 255, 0.2);
+  outline: none;
+  border-color: #4a7bff;
+  box-shadow: 0 0 0 2px rgba(74, 123, 255, 0.2);
 }
 
 .btn-create-notas button {
-    width: 15rem;
+  width: 15rem;
 }
 
 .btn-create-notas {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24vw;
 }
 
 .fa-power-off {
-    font-size: 20px;
-    color: #666;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  font-size: 20px;
+  color: #666;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .fa-power-off:hover {
-    color: #ff4a4a;
+  color: #ff4a4a;
 }
 
 .menu-tela {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
 }
 
 .menu-notas {
-    width: 24vw;
-    height: 100vh;
-    border-right: 1px solid rgba(128, 128, 128, 0.3);
-    justify-items: center;
+  width: 24vw;
+  height: 100vh;
+  border-right: 1px solid rgba(128, 128, 128, 0.3);
+  justify-items: center;
 }
 
 .card-container {
-    width: 300px;
-    height: 100px;
-    display: flex;
-    gap: 10px;
-    border-bottom: 1px solid rgba(128, 128, 128, 0.3);
-    padding: 5px;
-    box-sizing: border-box;
+  width: 300px;
+  height: 100px;
+  display: flex;
+  gap: 10px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+  padding: 5px;
+  box-sizing: border-box;
 }
 
 .card-img {
-    border-radius: 10px;
-    width: 100px;
-    height: 85px;
-    border: 1px solid grey;
-    overflow: hidden;
+  border-radius: 10px;
+  width: 100px;
+  height: 85px;
+  border: 1px solid grey;
+  overflow: hidden;
 }
 
 .card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-txt {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 5px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 5px;
 }
 
 .card-title {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .card-date {
-    font-size: 12px;
-    color: gray;
-    margin-bottom: 8px;
+  font-size: 12px;
+  color: gray;
+  margin-bottom: 8px;
 }
 
 .card-bts {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .card-bts span {
-    padding: 5px 7px;
-    border-radius: 5px;
-    font-size: 10px;
-    background-color: #808080;
-    color: white;
+  padding: 5px 7px;
+  border-radius: 5px;
+  font-size: 10px;
+  background-color: #808080;
+  color: white;
 }
 
 .btn-primary {
-    width: 250px;
-    height: 35px;
-    border-radius: 9px;
+  width: 250px;
+  height: 35px;
+  border-radius: 9px;
 }
 
 .tela {
-    width: 53vw;
-    border-right: 1px solid rgba(128, 128, 128, 0.3);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
+  width: 53vw;
+  border-right: 1px solid rgba(128, 128, 128, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .tela-banner {
-    width: 100%;
-    height: 150px;
-    background-color: rgba(128, 128, 128, 0.6);
-    border-radius: 9px;
+  width: 100%;
+  height: 150px;
+  background-color: rgba(128, 128, 128, 0.6);
+  border-radius: 9px;
+  border: 2px dashed #ccc;
+  transition: background 0.3s ease;
+  background-image:cover;
+
+  span {
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
 }
 
 .tela-title {
-    margin-top: 23px;
-    font-family: sans-serif;
-    padding-bottom: 8px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
+  margin-top: 23px;
+  font-family: sans-serif;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .edited-tags {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin-top: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
 }
 
 .edited,
 .tags {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: #333;
-    font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+  font-size: 14px;
 }
 
 .tela-description {
-    margin-top: 10px;
-    width: 100%;
-    height: 55vh;
-    background-color: #f5f9fa;
-    border-radius: 9px;
-    font-size: 16px;
-    margin-bottom: 12px;
-     border: none;
+  margin-top: 10px;
+  width: 100%;
+  height: 55vh;
+  background-color: #f5f9fa;
+  border-radius: 9px;
+  font-size: 16px;
+  margin-bottom: 12px;
+  border: none;
 }
 
-.tela-description textarea{
-    margin-top: 10px;
-    width: 100%;
-    height: 55vh;
-    background-color: #f5f9fa;
-    font-size: 16px;
-    border: transparent;
-    resize: none;
+.tela-description textarea {
+  margin-top: 10px;
+  width: 100%;
+  height: 55vh;
+  background-color: #f5f9fa;
+  font-size: 16px;
+  border: transparent;
+  resize: none;
 }
 
 .txt-description {
-    padding: 12px;
+  padding: 12px;
 
 }
 
 .tela-footer {
-    display: flex;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100%;
-    padding-top: 10px;
+  display: flex;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  width: 100%;
+  padding-top: 10px;
 }
 
 .tela-footer button {
-    width: 150px;
+  width: 150px;
 }
 
 .bts-footer {
-    align-items: center;
-    display: flex;
-    gap: 12px;
-} 
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
 /* Menu lateral */
 .menu {
   display: flex;
@@ -392,29 +403,22 @@
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.tela-banner {
-  height: 200px;
-  border: 2px dashed #ccc;
-  transition: background 0.3s ease;
+.tela-title .create-title textarea {
+
+  width: 100%;
+  height: 10vh;
+  background-color: #f5f9fa;
+  font-size: 20px;
+  border: transparent;
+  resize: none;
 }
 
 
-.tela-title .create-title textarea{
-  
-    width: 100%;
-    height: 10vh;
-    background-color: #f5f9fa;
-    font-size: 20px;
-    border: transparent;
-       resize: none;
-}
+.edited-tags .edited span {
 
-
-.edited-tags .edited span{
-  
-width: 15vw;
-height: 20px;
-border: transparent;
-font: bold;
+  width: 15vw;
+  height: 20px;
+  border: transparent;
+  font: bold;
 
 }

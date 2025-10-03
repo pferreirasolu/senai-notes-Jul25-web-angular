@@ -39,41 +39,15 @@
                     </div>
                 </div>
             </div>
-            <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
-                    </div>
-                </div>
-            </div>
-
+        
         </aside>
 
         <aside class="tela">
 
             <div class="tela-banner" (click)="triggerFileInput()"
-                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                <span>Click to upload an image here</span>
-                <input type="file" accept="image/*" #fileInput style="display: none;"
+                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; height: 350px;">
+                <span >Click to upload an image here</span>
+                <input type="file" accept="image/*" #fileInput style="display: none; font-size: 100vh;"
                     (change)="handleImageUpload($event)">
             </div>
 

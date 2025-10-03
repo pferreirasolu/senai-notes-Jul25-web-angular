@@ -33,7 +33,7 @@ export class NotesScreen {
         telaBanner.style.backgroundImage = `url('${reader.result}')`;
         telaBanner.style.backgroundSize = 'cover';
         telaBanner.style.backgroundPosition = 'center';
-        telaBanner.innerHTML = '';
+        // telaBanner.innerHTML = '';
       };
 
       reader.readAsDataURL(file);
