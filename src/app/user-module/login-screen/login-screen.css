@@ -11,7 +11,7 @@
     font-weight: 400;
     font-size: 15px;
     font-weight: 400;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .page-container{
@@ -86,19 +86,20 @@ font-weight: 400;
     cursor: pointer;
     font-size: 16px;
     margin-bottom: 16px;
+    
   
 
 }
 
 .login-container img {
-margin-bottom: 30px;
+margin-bottom: 20px;
 
 }
 
 .signup{
 
     border-top: 1px solid #ccc;
-    width: 444px;
+    width: 435px;
     height: 36px;
      display: flex;
     flex-direction: row;
