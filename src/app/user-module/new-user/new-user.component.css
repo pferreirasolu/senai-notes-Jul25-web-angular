@@ -22,14 +22,15 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    justify-items: center;
 
     
 
 }
 
 .login-container {
-    width: 390px;/*Largura da tela*/
-    height:550px;/*Altura da tela*/
+    width: 31vw;/*Largura da tela*/
+    height: 82vh;/*Altura da tela*/
     display: flex; /*Ativar o flex*/
     flex-direction: column; /*Muda o flex para colunas*/
     align-items: center; /*Centralizar horizontalmente*/
@@ -65,27 +66,27 @@
 
 .inpt{
 
-    padding: 14px;
-    background-color:#F7F9FB;
-    width: 300px;
+    padding: 18px;
+    background-color: #F7F9FB;
+    width: 100%;
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 16px;
     margin-top: 5px;
+
 }
 
-
-
 .login-container button {
-    
-    background-color:#335CFF;
-    width: 300px;
-    height: 30px;
-    padding: 5px;
-    border-radius: 10px;
+    background-color: #335CFF;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 94%;
+    height: 40px;
+    padding: 0px;
+    border-radius: 5px;
     color: #fffefe;
-    font-size:18px;
+    font-size: 18px;
     cursor: pointer;
 }
 
@@ -104,13 +105,14 @@ margin-bottom: 1px;
 
 .signup{  
     margin-top: 20px;
-    width: 300px;
-    height: 36px;
-    display: flex;
+    width: 435px;
+    height: 40px;
+    display: flex
+;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border-top:1px solid #ccc;
-    gap: 10px;
+    border-top: 1px solid #ccc;
+    gap: 20px;
     font-weight: 400;
 }
