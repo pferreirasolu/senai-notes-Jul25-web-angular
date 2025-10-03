@@ -1,5 +1,5 @@
 <section class="section-container">
-    <section class="nav" style="">
+    <section class="nav">
         <div class="logotipo" style="height: 40px; ">
             <img src="assets/imagens/logo.png" alt="">
         </div>
@@ -20,35 +20,31 @@
 
 
     <section class="menu-tela" style="display: flex; ">
-        <aside class="menu-notas" style="">
+        <aside class="menu-notas">
             <div class="btn-create-notas">
                 <button class="btn btn-primary" style="margin: 25px 0;">
                     + <span class="badge text-bg-secondary"> Create New Note</span>
                 </button>
             </div>
             <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
-                    </div>
-                </div>
+
+                @for (note of notes; track $index){
+                <button class="btn">
+                    <i class="fa-solid fa-trash-can"></i>
+                    {{ note.descricao }}
+                </button>
+                }
+
             </div>
-        
+
         </aside>
 
         <aside class="tela">
 
-            <div class="tela-banner" (click)="triggerFileInput()"
+            <div class="tela-banner"
                 style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; height: 350px;">
-                <span >Click to upload an image here</span>
-                <input type="file" accept="image/*" #fileInput style="display: none; font-size: 100vh;"
-                    (change)="handleImageUpload($event)">
+                <span>Click to upload an image here</span>
+
             </div>
 
             <div class="tela-title">
@@ -58,7 +54,7 @@
                 <div class="edited-tags">
                     <div class="edited" style="font-family: sans-serif;">
                         <img src="assets/imagens/Tag.png" alt="">
-                         <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: {{ dataHora }}</span>
+                        <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: </span>
                     </div>
                     <div class="tags">
                         <img src="assets/imagens/last.png" alt="">
