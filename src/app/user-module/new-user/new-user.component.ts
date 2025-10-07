@@ -58,12 +58,14 @@ export class NewUserComponent {
           "authorization": `Bearer ${token}`
         },
         body: JSON.stringify({
-          newUser: this.newUserScreenLoginForm.value.newUser,
+          name: this.newUserScreenLoginForm.value.newUser,
           email: this.newUserScreenLoginForm.value.email,
           password: this.newUserScreenLoginForm.value.password,
-          newPassword: this.newUserScreenLoginForm.value.newPassword
-        })
+        }),
+
+        
       });
+      window.location.href="login"
     }
 
   }
