@@ -1,19 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { ChangeDetectorRef, Component, ViewChild ,ElementRef} from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { firstValueFrom } from 'rxjs';
 
-
-
 interface Inote {
+  noteId: number;
   titulo: string;
   descricao: string;
   imagemUrl: string;
   usuarioId: number;
   tags: string;
 }
-
 
 @Component({
   selector: 'app-notes-screen',
@@ -24,16 +22,17 @@ interface Inote {
 })
 
 export class NotesScreen {
-  
 
   notes: Inote[];
-  notesSelecionado: Inote[];
+  notesSelecionado: Inote;
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {
     this.notes = [];
     this.notesSelecionado = null!;
+    const agora = new Date();
+    this.dataHora = agora.toLocaleDateString() + ' ' + agora.toLocaleTimeString();
 
-    }
+  }
 
   ngOnInit() {
     this.getNotes();
@@ -57,27 +56,50 @@ export class NotesScreen {
 
   }
 
-  
-  // async onChatClick(chatClicado: IChat) {
+  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
-  //   console.log("ChatClicado", chatClicado)
+  dataHora: string = '';
 
-  //   this.chatSelecionado = chatClicado;
+  triggerFileInput() {
+    this.fileInput.nativeElement.click();
+  }
 
-  //   let response = await firstValueFrom(this.http.get("https://senai-gpt-api.azurewebsites.net/messages?chatId=" +
-  //     chatClicado.id, {
-  //     headers: {
-  //       "Authorization": "Bearer " + localStorage.getItem("meuToken")
-  //     }
-  //   }));
+  handleImageUpload(event: Event) {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
 
-  //   console.log("Mensagens", response);
+      reader.onload = () => {
+        const telaBanner = document.querySelector('.tela-banner') as HTMLElement;
+        telaBanner.style.backgroundImage = `url('${reader.result}')`;
+        telaBanner.style.backgroundSize = 'cover';
+        telaBanner.style.backgroundPosition = 'center';
+        // telaBanner.innerHTML = '';
+      };
 
-  //   this.messages = response as [];
+      reader.readAsDataURL(file);
+    }
+  }
 
-  //   this.cd.detectChanges();
+  //Notas selecionadas
 
-  // }
+  async onNoteClick(notaClicada: Inote) {
+
+    console.log("Nota Clicada", notaClicada)
+    this.notesSelecionado = notaClicada;
+
+
+    let response = await firstValueFrom(this.http.get("http://localhost:3000/notas?noteId=" +
+      notaClicada.noteId, {
+      headers: {
+      }
+    }));
+
+    this.cd.detectChanges();
+
+  }
+
 
   // async sendMessage() {
 
@@ -96,7 +118,7 @@ export class NotesScreen {
 
   //   }));
 
-  //   await this.onChatClick(this.chatSelecionado);
+  //   await this.onNoteClick(this.notaSelecionada);
 
   //   //enviar mensagem para a IA responder.
 
@@ -123,8 +145,8 @@ export class NotesScreen {
   //     userId: "chatbot",
   //     text: respostaIAResponse.candidates[0].content.parts[0].text
   //   }
-    
-    
+
+
   //   let newMessageIAResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", newAnswerIA, {
   //     headers: {
   //       "content-type": "application/json",

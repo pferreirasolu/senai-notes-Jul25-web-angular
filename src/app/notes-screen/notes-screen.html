@@ -26,25 +26,39 @@
                     + <span class="badge text-bg-secondary"> Create New Note</span>
                 </button>
             </div>
-            <div class="card-container">
 
+            <div class="card-container">
                 @for (note of notes; track $index){
-                <button class="btn">
-                    <i class="fa-solid fa-trash-can"></i>
-                    {{ note.descricao }}
+
+                <button class="btn"  (click)="onNoteClick(note)">
+                    <div class="imgurl">
+                        <img [src]="note.imagemUrl" alt="Imagem" />
+                    </div>
+
+                    <div class="container-right">
+                        <div class="card-title">{{ note.titulo}}</div>
+                        <div class="card-bts">
+                            <span>{{note.tags}}</span>
+                        </div>
+                        <div class="card-date">03/10/2025 00:00:00</div>
+                    </div>
                 </button>
                 }
+
+
 
             </div>
 
         </aside>
 
+        @if (notesSelecionado == null) {
         <aside class="tela">
 
-            <div class="tela-banner"
-                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; height: 350px;">
-                <span>Click to upload an image here</span>
-
+            <div class="tela-banner" (click)="triggerFileInput()"
+                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                <span>Click to upload an image</span>
+                <input type="file" accept="image/*" #fileInput style="display: none;"
+                    (change)="handleImageUpload($event)">
             </div>
 
             <div class="tela-title">
@@ -82,9 +96,58 @@
                 </div>
 
             </div>
-
-
+       
         </aside>
+     }
+
+       @if (notesSelecionado != null) {
+        <aside class="tela">
+
+            <div class="tela-banner" (click)="triggerFileInput()"
+                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                <span>Click to upload an image</span>
+                <input type="file" accept="image/*" #fileInput style="display: none;"
+                    (change)="handleImageUpload($event)">
+            </div>
+
+            <div class="tela-title">
+                <div class="create-title">
+                    <textarea name="titleNote" id="title" placeholder="Enter a title...">{{notesSelecionado.titulo}}</textarea>
+                </div>
+                <div class="edited-tags">
+                    <div class="edited" style="font-family: sans-serif;">
+                        <img src="assets/imagens/Tag.png" alt="">
+                        <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: </span>
+                    </div>
+                    <div class="tags">
+                        <img src="assets/imagens/last.png" alt="">
+                        <span>Tags:{{notesSelecionado.tags}}</span>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tela-description">
+                <div class="txt-description">
+                    <textarea placeholder="Start typing your note here…">{{notesSelecionado.descricao}}</textarea>
+                </div>
+            </div>
+            <div class="tela-footer">
+                <div class="bts-footer">
+                    <div class="">
+                        <button class="btn btn-primary" style="margin: 25px 0;">
+                            Save <span class="badge text-bg-secondary">Note</span>
+                        </button>
+                    </div>
+                    <div class="bts2">
+                        <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+       
+        </aside>
+     }
         <aside class="tela-right"></aside>
 
 
