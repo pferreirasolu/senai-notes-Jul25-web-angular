@@ -6,10 +6,14 @@
         <div class="nav-rigth" style="display:flex; ">
             <div class="ipt-container" style="display: flex; gap: 15px;">
                 <div class="ipt">
+                    
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search by title, content, or tags..." style="height:42px;">
+                    
+                    <input class="inputt" type="text" placeholder="Search by title, content, or tags..." style="height:42px;">
                 </div>
 
+                   <button class="btn-chat">
+                    <i class="fa-solid fa-moon"></i></button>
                 <a href=""><i class="fa-solid fa-power-off" style="height: 30px;"></i></a>
 
             </div>
@@ -55,6 +59,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="card-container">
                 <div class="card-img">
                     <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
@@ -62,6 +67,7 @@
                 <div class="card-txt">
                     <div class="card-title">Título do card</div>
                     <div class="card-date">28 sep 2025</div>
+                 
                     <div class="card-bts">
                         <span>Travel</span>
                         <span>Personal</span>
@@ -82,13 +88,23 @@
 
             <div class="tela-title">
                 <div class="create-title">
+
                     <textarea name="titleNote" id="title" placeholder="Enter a title..."></textarea>
+
                 </div>
+
+
                 <div class="edited-tags">
                     <div class="edited" style="font-family: sans-serif;">
                         <img src="assets/imagens/Tag.png" alt="">
                          <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: {{ dataHora }}</span>
+                             <select [(ngModel)]="tagSelecionada">
+                          <option  value="">Selecione uma etiqueta</option>
+                        @for (tag of tagsDisponiveis; track $index) {
+                         <option [value]="tag">{{tag}}</option>}
+                          </select>
                     </div>
+                    
                     <div class="tags">
                         <img src="assets/imagens/last.png" alt="">
                         <span>Tags:</span>
