@@ -221,13 +221,17 @@
   margin-top: 14px;
 }
 
-.edited,
+
 .tags {
   display: flex;
   align-items: center;
   gap: 6px;
   color: #333;
   font-size: 14px;
+}
+
+#lastEdit{
+  margin-right: 320px;
 }
 
 .tela-description {
@@ -429,5 +433,25 @@
   height: 20px;
   border: transparent;
   font: bold;
+}
+.edited-tags .edited span{
+  
+width: 15vw;
+height: 20px;
+border: transparent;
+font: bold;
 
+}
+
+
+.section-container{
+  background: #000;
+}
+ 
+::ng-deep .ipt .inputt{
+  background-color: #808080;
+}
+
+::ng-deep .ipt .fa-magnifying-glass{
+  color: #333;
 }

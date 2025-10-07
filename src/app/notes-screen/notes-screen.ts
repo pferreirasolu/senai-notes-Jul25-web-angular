@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, ViewChild, ElementRef } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
+import { isFunction } from 'rxjs/internal/util/isFunction';
+
 
 interface Inote {
   noteId: number;
@@ -13,10 +16,12 @@ interface Inote {
   tags: string;
 }
 
+
+
 @Component({
   selector: 'app-notes-screen',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,RouterModule,FormsModule],
   templateUrl: './notes-screen.html',
   styleUrl: './notes-screen.css'
 })
@@ -59,6 +64,15 @@ export class NotesScreen {
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   dataHora: string = '';
+tagSelecionada ='';
+  tagsDisponiveis =[
+    "dev",
+    "cooking",
+    "work",
+    "home",
+  ];
+
+  darkMode: boolean = false
 
   triggerFileInput() {
     this.fileInput.nativeElement.click();
@@ -158,4 +172,31 @@ export class NotesScreen {
 
   //         this.userMessage.setValue("");
   // }
+
+
+  //guilherme
+   async salvarNotas(): Promise<void>{
+    if(!this.salvarNotas){
+      return;
+    }
+  }
+  deslogar(){
+  //1 alternativa
+  localStorage.removeItem("meuToken");
+  localStorage.removeItem("meuId");
+
+  localStorage.clear();
+  window.location.href = "LOgin";
+}
+
+ligarDesligarDarkMode(){
+
+  this.darkMode = !this.darkMode; //o inverso do this.darkMode
+
+  
+  document.body.classList.toggle("dark-mode", this.darkMode);
+
+  localStorage.setItem("darkMode", this.darkMode.toString());
+}
+
 }
