@@ -1,9 +1,9 @@
 <section class="section-container">
-    <section class="nav" style="">
-        <div class="logotipo" style="height: 40px; ">
+    <section class="nav">
+        <div class="logotipo">
             <img src="assets/imagens/logo.png" alt="">
         </div>
-        <div class="nav-rigth" style="display:flex; ">
+        <div class="nav-rigth" style="display:flex;  ">
             <div class="ipt-container" style="display: flex; gap: 15px;">
                 <div class="ipt">
                     
@@ -14,7 +14,7 @@
 
                    <button class="btn-chat">
                     <i class="fa-solid fa-moon"></i></button>
-                <a href=""><i class="fa-solid fa-power-off" style="height: 30px;"></i></a>
+                <a href=""><i class="fa-solid fa-power-off" style="height: 42px;"></i></a>
 
             </div>
 
@@ -24,64 +24,45 @@
 
 
     <section class="menu-tela" style="display: flex; ">
-        <aside class="menu-notas" style="">
+        <aside class="menu-notas">
             <div class="btn-create-notas">
                 <button class="btn btn-primary" style="margin: 25px 0;">
                     + <span class="badge text-bg-secondary"> Create New Note</span>
                 </button>
             </div>
-            <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="card-title">Título do card</div>
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
 
+            <div class="card-container">
+                @for (note of notes; track $index){
+
+                <button class="btn"  (click)="onNoteClick(note)">
+                    <div class="imgurl">
+                        <img [src]="note.imagemUrl" alt="Imagem" />
                     </div>
 
-                    <div class="card-date">28 sep 2025</div>
-                    
-                </div>
-            </div>
-            <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
+                    <div class="container-right">
+                        <div class="card-title">{{ note.titulo}}</div>
+                        <div class="card-bts">
+                            <span>{{note.tags[0]}}</span>
+                            <span>{{note.tags[1]}}</span>
+
+                        </div>
+                        <div class="card-date">03/10/2025 00:00:00</div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="card-container">
-                <div class="card-img">
-                    <img src="assets/imagens/Rectangle 45.png" alt="Imagem da card">
-                </div>
-                <div class="card-txt">
-                    <div class="card-title">Título do card</div>
-                    <div class="card-date">28 sep 2025</div>
-                 
-                    <div class="card-bts">
-                        <span>Travel</span>
-                        <span>Personal</span>
-                    </div>
-                </div>
+                </button>
+                }
+
+
+
             </div>
 
         </aside>
 
+        @if (notesSelecionado == null) {
         <aside class="tela">
 
             <div class="tela-banner" (click)="triggerFileInput()"
                 style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
-                <span>Click to upload an image here</span>
+                <span>Click to upload an image</span>
                 <input type="file" accept="image/*" #fileInput style="display: none;"
                     (change)="handleImageUpload($event)">
             </div>
@@ -97,7 +78,7 @@
                 <div class="edited-tags">
                     <div class="edited" style="font-family: sans-serif;">
                         <img src="assets/imagens/Tag.png" alt="">
-                         <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: {{ dataHora }}</span>
+                         <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited:</span>
                              <select [(ngModel)]="tagSelecionada">
                           <option  value="">Selecione uma etiqueta</option>
                         @for (tag of tagsDisponiveis; track $index) {
@@ -121,8 +102,8 @@
             <div class="tela-footer">
                 <div class="bts-footer">
                     <div class="">
-                        <button class="btn btn-primary" style="margin: 25px 0;">
-                            Save <span class="badge text-bg-secondary">Note</span>
+                        <button class="btn-primary" style="margin: 25px 0;">
+                                <span class="badge text-bg-secondary">Save Note</span>
                         </button>
                     </div>
                     <div class="bts2">
@@ -131,9 +112,64 @@
                 </div>
 
             </div>
-
-
+       
         </aside>
+     }
+
+       @if (notesSelecionado != null) {
+        <aside class="tela">
+
+            <div class="tela-banner" (click)="triggerFileInput()"
+                style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                <span>Click to upload an image</span>
+                <input type="file" accept="image/*" #fileInput style="display: none;"
+                    (change)="handleImageUpload($event)">
+            </div>
+
+            <div class="tela-title">
+                <div class="create-title">
+                    <textarea name="titleNote" id="title" placeholder="Enter a title...">{{notesSelecionado.titulo}}</textarea>
+                </div>
+                <div class="edited-tags">
+                    <div class="edited" style="font-family: sans-serif;">
+                        <img src="assets/imagens/Tag.png" alt="">
+                        <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: {{notesSelecionado.lastEdit}}</span>
+                        <select [(ngModel)]="tagSelecionada">
+                          <option  value="">Selecione uma etiqueta</option>
+                        @for (tag of tagsDisponiveis; track $index) {
+                         <option [value]="tag">{{tag}}</option>}
+                          </select>
+                    
+                    </div>
+                    <div class="tags">
+                        <img src="assets/imagens/last.png" alt="">
+                        <h5 name="edittag" id="edittag"readonly>Tags: <span>{{notesSelecionado.tags[0] }}</span><span>{{notesSelecionado.tags[1] }}</span></h5>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tela-description">
+                <div class="txt-description">
+                    <textarea placeholder="Start typing your note here…">{{notesSelecionado.descricao}}</textarea>
+                </div>
+            </div>
+            <div class="tela-footer">
+                <div class="bts-footer">
+                    <div class="">
+                        <button class="btn btn-primary" style="margin: 25px 0;">
+                           <span class="badge text-bg-secondary" (click) ="sendNotes()"> Save Note </span>
+                        </button>
+                    </div>
+                    <div class="bts2">
+                        <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+       
+        </aside>
+     }
         <aside class="tela-right"></aside>
 
 
