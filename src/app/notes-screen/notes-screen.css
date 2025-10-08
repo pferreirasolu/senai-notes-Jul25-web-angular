@@ -3,6 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+.btn-chat{
+  color:#666;
+  border: none;
+}
 
 .nav {
   display: flex;
@@ -444,14 +448,28 @@ font: bold;
 }
 
 
-.section-container{
+
+::ng-deep body.dark-mode .section-container{
   background: #000;
 }
+
+::ng-deep body.dark-mode .nav{
+  background-color: #000 !important;
+}
  
-::ng-deep .ipt .inputt{
-  background-color: #808080;
+::ng-deep body.dark-mode .ipt .inputt{
+  background-color: #fff;
 }
 
-::ng-deep .ipt .fa-magnifying-glass{
+::ng-deep body.dark-mode.ipt .fa-magnifying-glass{
   color: #333;
+}
+
+::ng-deep body.dark-mode #lastEdit{
+  color: #fff;
+}
+
+::ng-deep body.dark-mode .tags{
+  color: #fff;
+
 }
