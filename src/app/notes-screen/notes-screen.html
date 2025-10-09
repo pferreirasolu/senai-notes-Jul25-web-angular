@@ -1,7 +1,13 @@
 <section class="section-container">
-    <section class="nav">
-        <div class="logotipo" style="height: 40px; ">
-            <img src="assets/imagens/logo.png" alt="">
+  <section class="nav">
+    <div class="logotipo">
+      <img src="assets/imagens/logo.png" alt="">
+    </div>
+    <div class="nav-rigth" style="display:flex;">
+      <div class="ipt-container" style="display: flex; gap: 15px;">
+        <div class="ipt">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input class="inputt" type="text" placeholder="Search by title, content, or tags..." style="height:42px;">
         </div>
         <div class="nav-rigth" style="display:flex; ">
             <div class="ipt-container" style="display: flex; gap: 15px;">
@@ -164,13 +170,67 @@
                 </div>
 
             </div>
-       
-        </aside>
-     }
-        <aside class="tela-right"></aside>
+          </button>
+        }
+      </div>
+    </aside>
 
+    <aside class="tela">
+      <div class="tela-banner" (click)="triggerFileInput()"
+        style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+        <span>Click to upload an image</span>
+        <input type="file" accept="image/*" #fileInput style="display: none;" (change)="handleImageUpload($event)">
+      </div>
 
-    </section>
+      <div class="tela-title">
+        <div class="create-title">
+          <textarea name="titleNote" id="title" placeholder="Enter a title..." [(ngModel)]="notesSelecionado.titulo"></textarea>
+        </div>
 
+        <div class="edited-tags">
+          <div class="edited" style="font-family: sans-serif;">
+    
+            <span>Last Edited: {{ notesSelecionado.lastEdit }}</span>
+            <select [(ngModel)]="tagSelecionada">
+              <option value="">Selecione uma etiqueta</option>
+              @for (tag of tagsDisponiveis; track $index) {
+                <option [value]="tag">{{ tag }}</option>
+              }
+            </select>
+          </div>
 
+          <div class="tags">
+            <img src="assets/imagens/last.png" alt="">
+            @if (notesSelecionado.tags != null && notesSelecionado.tags.length > 0) {
+              <h5>Tags:
+                <span>{{ notesSelecionado.tags[0] }}</span>
+                <span>{{ notesSelecionado.tags[1] }}</span>
+              </h5>
+            }
+          </div>
+        </div>
+      </div>
+
+      <div class="tela-description">
+        <div class="txt-description">
+          <textarea placeholder="Start typing your note here…" [(ngModel)]="notesSelecionado.descricao"></textarea>
+        </div>
+      </div>
+
+      <div class="tela-footer">
+        <div class="bts-footer">
+          <div>
+            <button class="btn btn-primary" style="margin: 25px 0;" (click)="atualizaNotes()">
+              <span class="badge text-bg-secondary">Save Note</span>
+            </button>
+          </div>
+          <div class="bts2">
+            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="tela-right"></aside>
+  </section>
 </section>

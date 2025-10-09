@@ -1,36 +1,43 @@
 {
-    
-    "notas" : [
-     {  "noteId": 1,
-        "titulo" : "projetos angular",
-        "descricao" : "descrico de nota",
-        "imagemUrl" : "https://isabelaboscov.com/wp-content/uploads/2016/08/interstellar_feat.jpg?w=1038&h=520&crop=1",
-        "usuarioId" : " 1 ",
-        "tags" : [
-            "Js"
-        ]
-
-     },
-     {  "noteId": 2,
-        "titulo" : "projetos senai GPT",
-        "descricao" : "notes",
-        "imagemUrl" : "https://mauriciostycer.com.br/wp-content/uploads/2025/02/folhabreaking-bad.png",
-        "usuarioId" : " 1 ",
-        "tags" : [
-            "Python"
-        ]
-
-     },
-        {
-        "noteId": 3,
-        "titulo" : "projetos pessoais",
-        "descricao" : "notes",
-        "imagemUrl" : "link da imagem",
-        "usuarioId" : " 1 ",
-        "tags" : [
-            "Java"
-        ]
-
-     }
-    ]
+  "notas": [
+    {
+       "Id": 2,
+      "titulo": "projetos senai GPT",
+      "descricao": "notes",
+      "imagemUrl": "https://mauriciostycer.com.br/wp-content/uploads/2025/02/folhabreaking-bad.png",
+      "usuarioid": " 1 ",
+      "tags": [
+        "Python",
+        "Angular"
+      ],
+      "lastEdit": "06-10-2025 20:14:33",
+      "id": "d8e0"
+    },
+    {
+      "Id": 2,
+      "titulo": "projetos senai GPT",
+      "descricao": "notes",
+      "imagemUrl": "https://mauriciostycer.com.br/wp-content/uploads/2025/02/folhabreaking-bad.png",
+      "usuarioid": " 1 ",
+      "tags": [
+        "Python",
+        "Angular"
+      ],
+      "lastEdit": "06-10-2025 20:14:33",
+      "id": "d8e0"
+    },
+    {
+      "Id": 2,
+      "titulo": "projetos senai GPT",
+      "descricao": "notes",
+      "imagemUrl": "https://mauriciostycer.com.br/wp-content/uploads/2025/02/folhabreaking-bad.png",
+      "usuarioid": " 1 ",
+      "tags": [
+        "Python",
+        "Angular"
+      ],
+      "lastEdit": "06-10-2025 20:14:33",
+      "id": "d8e0"
+    }
+  ]
 }
