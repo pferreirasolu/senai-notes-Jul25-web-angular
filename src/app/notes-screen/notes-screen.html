@@ -46,6 +46,11 @@
       </div>
     </aside>
 
+
+    @if (notesSelecionado !=null){
+
+
+
     <aside class="tela">
       <div class="tela-banner" (click)="triggerFileInput()"
         style="cursor: pointer; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
@@ -72,6 +77,7 @@
 
           <div class="tags">
             <img src="assets/imagens/last.png" alt="">
+
             @if (notesSelecionado.tags != null && notesSelecionado.tags.length > 0) {
               <h5>Tags:
                 <span>{{ notesSelecionado.tags[0] }}</span>
@@ -101,7 +107,15 @@
         </div>
       </div>
     </aside>
+  
+    <aside class="tela-right"></aside> }
 
-    <aside class="tela-right"></aside>
+    @if (notesSelecionado == null ){
+
+
+
+    }
+
+
   </section>
 </section>

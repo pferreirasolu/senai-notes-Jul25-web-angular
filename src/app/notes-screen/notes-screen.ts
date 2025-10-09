@@ -120,8 +120,8 @@ tagSelecionada ='';
   async atualizaNotes() {
 
     let newNotes = {
-      idNota: this.notesSelecionado.id,
-      idUsuario: this.notesSelecionado.id,
+      id: this.notesSelecionado.id,
+      usuarioid: this.notesSelecionado.id,
       titulo: this.notesSelecionado.titulo,
       descricao: this.notesSelecionado.descricao,
       imagem: this.notesSelecionado.imagemUrl
@@ -132,7 +132,7 @@ tagSelecionada ='';
     
 
 
-    let newNoteResponse = await firstValueFrom(this.http.post("http://senainotes-env-1.eba-xtvmn99j.us-east-1.elasticbeanstalk.com/api/notas", newNotes, {
+    let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
       headers: {
         "content-type": "application/json"
       },
@@ -140,6 +140,17 @@ tagSelecionada ='';
     }));
 
     await this.onNoteClick(this.notesSelecionado);
+
+
+       let newNoteEnviaResponse = await firstValueFrom(this.http.post("http://localhost:3000/notas", newNotes, {
+      headers: {
+        "content-type": "application/json"
+      },
+
+    }));
+
+    await this.onNoteClick(this.notesSelecionado);
+
 
     //enviar mensagem para a IA responder.
 

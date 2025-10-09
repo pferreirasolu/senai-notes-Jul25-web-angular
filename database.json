@@ -1,17 +1,11 @@
 {
   "notas": [
     {
-       "Id": 2,
-      "titulo": "projetos senai GPT",
-      "descricao": "notes",
-      "imagemUrl": "https://mauriciostycer.com.br/wp-content/uploads/2025/02/folhabreaking-bad.png",
-      "usuarioid": " 1 ",
-      "tags": [
-        "Python",
-        "Angular"
-      ],
-      "lastEdit": "06-10-2025 20:14:33",
-      "id": "d8e0"
+      "id": "d8e0",
+      "usuarioid": "d8e0",
+      "titulo": "projetos senai GPT3",
+      "descricao": "notes asdasd",
+      "imagem": "https://mauriciostycer.com.br/wp-content/uploads/2025/02/folhabreaking-bad.png"
     },
     {
       "Id": 2,
@@ -38,6 +32,13 @@
       ],
       "lastEdit": "06-10-2025 20:14:33",
       "id": "d8e0"
+    },
+    {
+      "id": "d8e0",
+      "usuarioid": "d8e0",
+      "titulo": "projetos senai GPT3",
+      "descricao": "notes asdasd",
+      "imagem": "https://mauriciostycer.com.br/wp-content/uploads/2025/02/folhabreaking-bad.png"
     }
   ]
 }
