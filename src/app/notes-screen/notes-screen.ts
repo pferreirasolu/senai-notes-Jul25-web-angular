@@ -8,7 +8,7 @@ import { isFunction } from 'rxjs/internal/util/isFunction';
 
 
 interface Inote {
-  noteId: number;
+  id: number;
   titulo: string;
   descricao: string;
   imagemUrl: string;
@@ -105,8 +105,8 @@ tagSelecionada ='';
     this.notesSelecionado = notaClicada;
 
 
-    let response = await firstValueFrom(this.http.get("http://localhost:3000/notas?noteId=" +
-      notaClicada.noteId, {
+    let response = await firstValueFrom(this.http.get("http://localhost:3000/notas?id=" +
+      notaClicada.id, {
       headers: {
       }
     }));
@@ -117,18 +117,21 @@ tagSelecionada ='';
 
 //////////////////////////////////////////
 
-  async sendNotes() {
+  async atualizaNotes() {
 
     let newNotes = {
-      noteId: this.notesSelecionado.noteId,
-      usuarioId: localStorage.getItem("meuId"),
+      id: this.notesSelecionado.id,
+      usuariod: this.notesSelecionado.id,
       titulo: this.notesSelecionado.titulo,
       descricao: this.notesSelecionado.descricao
 
     };
 
 
-    let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.noteId, newNotes, {
+    
+
+
+    let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
       headers: {
         "content-type": "application/json"
       },
