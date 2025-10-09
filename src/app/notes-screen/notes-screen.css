@@ -448,11 +448,11 @@ font: bold;
 
 
 ::ng-deep body.dark-mode .section-container{
-  background: #000;
+  background: #191919;
 }
 
 ::ng-deep body.dark-mode .nav{
-  background-color: #000 !important;
+  background-color: #191919 !important;
 }
  
 ::ng-deep body.dark-mode .ipt .inputt{
@@ -472,5 +472,18 @@ font: bold;
 
 }
 ::ng-deep body.dark-mode .tela-footer{
-  background-color: #000;
+  background-color: #191919;
+}
+
+::ng-deep body.dark-mode .btn-primary{
+  
+    color: #0062cc;
+    background-color: #fff;
+    border-color: #007bff;
+}
+
+::ng-deep body.dark-mode .btn-secondary{
+  color: #5a6268;
+  background-color: #fff;
+  border-color: #fff;
 }

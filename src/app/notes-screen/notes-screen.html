@@ -115,6 +115,7 @@
      }
 
        @if (notesSelecionado != null) {
+
         <aside class="tela">
 
             <div class="tela-banner" (click)="triggerFileInput()"
@@ -132,6 +133,11 @@
                     <div class="edited" style="font-family: sans-serif;">
                         <img src="assets/imagens/Tag.png" alt="">
                         <span name="lastEdit" id="lastEdit" placeholder="Data" readonly>Last Edited: </span>
+                               <select [(ngModel)]="tagSelecionada">
+                          <option  value="">Selecione uma etiqueta</option>
+                        @for (tag of tagsDisponiveis; track $index) {
+                         <option [value]="tag">{{tag}}</option>}
+                          </select>
                     </div>
                     <div class="tags">
                         <img src="assets/imagens/last.png" alt="">
