@@ -8,6 +8,9 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   imports: [ReactiveFormsModule]
 })
 export class LoginScreen {
+  emailErrorMessage: string = '';
+  passwordErrorMessage: string = '';
+
   //quando a tela iniciar
 
 
@@ -25,7 +28,7 @@ incorrectCredentials:string;
       password: ["", [Validators.required]]
     })
 
-    this.senha ="";
+    this.senha="";
     this.email="";
     this.successLogin = "";
     this.incorrectCredentials ="";
@@ -41,14 +44,14 @@ incorrectCredentials:string;
       },
       body: JSON.stringify({
         email: this.loginForm.value.email,
-        password: this.loginForm.value.Senha
+        senha: this.loginForm.value.Senha
       })
     });
 
 
     if (this.loginForm.value.email != "" && this.loginForm.value.senha != "") {
 
-      let response = await fetch("https://senai-gpt-api.azurewebsites.net/login", {
+      let response = await fetch("http://senainotes-env-1.eba-xtvmn99j.us-east-1.elasticbeanstalk.com/api/usuarios/cadastras", {
         method: "POST",
         headers: {
           "content-type": "application/json"
