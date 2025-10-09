@@ -8,13 +8,16 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
   imports: [ReactiveFormsModule]
 })
 export class LoginScreen {
+  emailErrorMessage: string = '';
+  passwordErrorMessage: string = '';
+
   //quando a tela iniciar
 
 
   loginForm: FormGroup;
 
-emailErrorMessage: string;
-passwordErrorMessage: string;
+email: string;
+senha: string;
 successLogin:string;
 incorrectCredentials:string;
 
@@ -25,8 +28,8 @@ incorrectCredentials:string;
       password: ["", [Validators.required]]
     })
 
-    this.passwordErrorMessage ="";
-    this.emailErrorMessage="";
+    this.senha="";
+    this.email="";
     this.successLogin = "";
     this.incorrectCredentials ="";
   }
@@ -34,28 +37,28 @@ incorrectCredentials:string;
 
 
   async onLoginClick() {
-    let response = await fetch("https://senai-gpt-api.azurewebsites.net/login", {
+    let response = await fetch("http://senainotes-env-1.eba-xtvmn99j.us-east-1.elasticbeanstalk.com/api/usuarios/cadastras", {
       method: "POST",
       headers: {
         "content-type": "application/json"
       },
       body: JSON.stringify({
         email: this.loginForm.value.email,
-        password: this.loginForm.value.password
+        senha: this.loginForm.value.Senha
       })
     });
 
 
-    if (this.loginForm.value.email != "" && this.loginForm.value.password != "") {
+    if (this.loginForm.value.email != "" && this.loginForm.value.senha != "") {
 
-      let response = await fetch("https://senai-gpt-api.azurewebsites.net/login", {
+      let response = await fetch("http://senainotes-env-1.eba-xtvmn99j.us-east-1.elasticbeanstalk.com/api/usuarios/cadastras", {
         method: "POST",
         headers: {
           "content-type": "application/json"
         },
         body: JSON.stringify({
           email: this.loginForm.value.email,
-          password: this.loginForm.value.password
+          senha: this.loginForm.value.senha
         })
       });
 

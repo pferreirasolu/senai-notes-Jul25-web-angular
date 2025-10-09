@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 2px 20px;
   background-color: #ffffff;
   border-bottom: 1px solid #e0e0e0;
   height: 40px;
@@ -42,7 +42,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  height: 44px;
+  height: 20px;
 }
 
 .ipt i {
@@ -53,11 +53,11 @@
 }
 
 .ipt input {
-  padding: 8px 8px 8px 35px;
+  padding-left: 35px;
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 286px;
-  font-size: 9px;
+  font-size: 14px;
 }
 
 .ipt input::placeholder {
@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24vw;
+  width: 20vw;
 }
 
 .fa-power-off {
@@ -98,7 +98,8 @@
 
 .menu-tela {
   width: 100vw;
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   display: flex;
 }
 
@@ -184,7 +185,7 @@
 }
 
 .btn-primary {
-  width: 250px;
+  width: 200px;
   height: 35px;
   border-radius: 9px;
 }
@@ -215,7 +216,7 @@
 }
 
 .tela-title {
-  margin-top: 23px;
+  margin-top: 15px;
   font-family: sans-serif;
   padding-bottom: 8px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -231,7 +232,10 @@
   margin-top: 14px;
 }
 
-
+select {
+    word-wrap: normal;
+    border-radius: 5px;
+}
 .tags {
   display: flex;
   align-items: center;
@@ -260,11 +264,11 @@
 .tela-description {
   margin-top: 10px;
   width: 100%;
-  height: 55vh;
+  height: 24vh;
   background-color: #f5f9fa;
   border-radius: 9px;
   font-size: 16px;
-  margin-bottom: 12px;
+  margin-bottom:5px;
   border: none;
 }
 
@@ -439,13 +443,15 @@
 }
 
 .tela-title .create-title textarea {
-
-  width: 100%;
-  height: 10vh;
-  background-color: #f5f9fa;
-  font-size: 20px;
-  border: transparent;
-  resize: none;
+width: 100%;
+    height: 8vh;
+    background-color: #f5f9fa;
+    font-size: 20px;
+    border: transparent;
+    resize: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
 
@@ -466,6 +472,40 @@
   background-color: #808080;
 } */
 
-::ng-deep .ipt .fa-magnifying-glass{
+::ng-deep body.dark-mode.ipt .fa-magnifying-glass{
   color: #333;
+}
+
+::ng-deep body.dark-mode #lastEdit{
+  color: #fff;
+}
+
+::ng-deep body.dark-mode .tags{
+  color: #fff;
+
+}
+::ng-deep body.dark-mode .tela-footer{
+  background-color: #191919;
+  border-top: 1px solid #fff;
+}
+
+::ng-deep body.dark-mode .btn-primary{
+  
+    color: #0062cc;
+    background-color: #fff;
+    border-color: #007bff;
+}
+
+::ng-deep body.dark-mode .btn-secondary{
+  color: #5a6268;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+::ng-deep body.dark-mode .tela-banner{
+  border: 2px dashed #ccc;
+}
+
+::ng-deep body.dark-mode .tela-title{
+  border-bottom: 1px solid #fff;
 }
