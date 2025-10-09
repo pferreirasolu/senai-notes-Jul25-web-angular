@@ -120,10 +120,11 @@ tagSelecionada ='';
   async atualizaNotes() {
 
     let newNotes = {
-      id: this.notesSelecionado.id,
-      usuariod: this.notesSelecionado.id,
+      idNota: this.notesSelecionado.id,
+      idUsuario: this.notesSelecionado.id,
       titulo: this.notesSelecionado.titulo,
-      descricao: this.notesSelecionado.descricao
+      descricao: this.notesSelecionado.descricao,
+      imagem: this.notesSelecionado.imagemUrl
 
     };
 
@@ -131,7 +132,7 @@ tagSelecionada ='';
     
 
 
-    let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
+    let newNoteResponse = await firstValueFrom(this.http.post("http://senainotes-env-1.eba-xtvmn99j.us-east-1.elasticbeanstalk.com/api/notas", newNotes, {
       headers: {
         "content-type": "application/json"
       },
