@@ -22,7 +22,7 @@ interface Inote {
 @Component({
   selector: 'app-notes-screen',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,RouterModule,FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
   templateUrl: './notes-screen.html',
   styleUrl: './notes-screen.css'
 })
@@ -31,6 +31,7 @@ export class NotesScreen {
 
   notes: Inote[];
   notesSelecionado: Inote;
+  successLogin: string;
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {
     this.notes = [];
@@ -38,6 +39,7 @@ export class NotesScreen {
     const agora = new Date();
     this.dataHora = agora.toLocaleDateString() + ' ' + agora.toLocaleTimeString();
 
+    this.successLogin = "";
   }
 
   ngOnInit() {
@@ -58,15 +60,15 @@ export class NotesScreen {
       console.log("Notes", response)
     }
 
-    this.cd.detectChanges();
+   this.cd.detectChanges();
 
   }
 
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   dataHora: string = '';
-tagSelecionada ='';
-  tagsDisponiveis =[
+  tagSelecionada = '';
+  tagsDisponiveis = [
     "dev",
     "cooking",
     "work",
@@ -111,98 +113,69 @@ tagSelecionada ='';
       }
     }));
 
-    this.cd.detectChanges();
+
 
   }
 
-//////////////////////////////////////////
+  //////////////////////////////////////////
 
   async atualizaNotes() {
 
     let newNotes = {
       id: this.notesSelecionado.id,
-      usuariod: this.notesSelecionado.id,
+      usuarioid: this.notesSelecionado.id,
       titulo: this.notesSelecionado.titulo,
-      descricao: this.notesSelecionado.descricao
+      descricao: this.notesSelecionado.descricao,
+      imagem: this.notesSelecionado.imagemUrl
 
     };
 
+  //  this.cd.detectChanges();
 
-    
+    const existe = this.notes.some(n => n.id === this.notesSelecionado.id);
 
+    if (existe) {
+      let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
+        headers: {
+          "content-type": "application/json"
+        },
 
-    let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
-      headers: {
-        "content-type": "application/json"
-      },
+      }));
+      this.successLogin = "Nota Atualizada com sucesso!";
 
-    }));
+      await this.onNoteClick(this.notesSelecionado);
 
-    await this.onNoteClick(this.notesSelecionado);
+    } else {
+      let newNoteEnviaResponse = await firstValueFrom(this.http.post("http://localhost:3000/notas", newNotes, {
+        headers: {
+          "content-type": "application/json"
+        },
 
-    //enviar mensagem para a IA responder.
+      }));
+      this.successLogin = "Nota cadastrada com sucesso!";
+      await this.onNoteClick(this.notesSelecionado);
 
-    // let respostaIAResponse = await firstValueFrom(this.http.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent", {
-    //   "contents": [
-    //     {
-    //       "parts": [
-    //         {
-    //           "text": this.userMessage.value +". Me de uma resposta objetiva"
-    //         }
-    //       ]
-
-    //     }
-    //   ]
-    // },{
-    //   headers:{
-    //     "content-type":"application;json",
-    //     "x-goog-api-key":"AIzaSyDV2HECQZLpWJrqCKEbuq7TT5QPKKdLOdo"
-    //   }
-    // })) as any;
-
-    // let newAnswerIA = {
-    //   chatId: this.chatSelecionado.id,
-    //   userId: "chatbot",
-    //   text: respostaIAResponse.candidates[0].content.parts[0].text
-    // }
+    }
 
 
-    // let newMessageIAResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", newAnswerIA, {
-    //   headers: {
-    //     "content-type": "application/json",
-    //     "Authorization": "Bearer " + localStorage.getItem("meuToken")
-    //   },
+    await this.getNotes();
 
-    // }));
-    //       await this.onChatClick(this.chatSelecionado);
-
-    //       this.userMessage.setValue("");
   }
 
+  async createNote() {
+    const novaNota: Inote = {
+      id: Date.now(), // ou gere um ID temporário
+      titulo: '',
+      descricao: '',
+      imagemUrl: '',
+      usuarioId: 1, // ou o ID do usuário atual
+      tags: '',
+      lastEdit: this.dataHora
+    };
 
-  //guilherme
-//    async salvarNotas(): Promise<void>{
-//     if(!this.salvarNotas){
-//       return;
-//     }
-//   }
-//   deslogar(){
-//   //1 alternativa
-//   localStorage.removeItem("meuToken");
-//   localStorage.removeItem("meuId");
+    this.notesSelecionado = novaNota;
 
-//   localStorage.clear();
-//   window.location.href = "LOgin";
-// }
+  }
 
-// ligarDesligarDarkMode(){
-
-//   this.darkMode = !this.darkMode; //o inverso do this.darkMode
-
-  
-//   document.body.classList.toggle("dark-mode", this.darkMode);
-
-//   localStorage.setItem("darkMode", this.darkMode.toString());
-// }
 
 }
