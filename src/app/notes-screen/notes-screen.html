@@ -80,7 +80,7 @@
           </div>
 
           <div class="tags">
-            <img src="assets/imagens/last.png" alt="">
+            <img src="" alt="">
 
             @if (notesSelecionado.tags != null && notesSelecionado.tags.length > 0) {
             <h5>Tags:
@@ -101,15 +101,19 @@
       <div class="tela-footer">
         <div class="bts-footer">
           <div>
-            <button class="btn btn-primary" style="margin: 25px 0;" (click)="atualizaNotes()">
+            <button class="btn btn-primary" (click)="atualizaNotes()">
               <span class="badge text-bg-secondary">Save Note</span>
              
             </button>
              <span class="message-success" style="color: green;">{{successLogin}}</span>
           </div>
           <div class="bts2">
-            <button type="button" class="btn btn-secondary btn-lg">Cancel</button>
+            <button type="button" class="btn btn-primary btn-lg">Cancel</button>
           </div>
+          <div class="bts3">
+            <button type="button" class="btn btn-third btn-lg" (click)="excluirNote()">Excluir</button>
+          </div>
+          <span class="message-success" style="color: green;">{{successExcluir}}</span>
         </div>
       </div>
     </aside>

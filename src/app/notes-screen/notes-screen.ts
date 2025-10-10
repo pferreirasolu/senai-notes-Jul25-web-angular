@@ -12,7 +12,7 @@ interface Inote {
   titulo: string;
   descricao: string;
   imagemUrl: string;
-  usuarioId: number;
+  usuarioid: number;
   tags: string;
   lastEdit: String;
 }
@@ -32,6 +32,8 @@ export class NotesScreen {
   notes: Inote[];
   notesSelecionado: Inote;
   successLogin: string;
+   successExcluir: string;
+     successAtualizar: string;
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {
     this.notes = [];
@@ -40,6 +42,8 @@ export class NotesScreen {
     this.dataHora = agora.toLocaleDateString() + ' ' + agora.toLocaleTimeString();
 
     this.successLogin = "";
+    this.successExcluir = "";
+    this.successAtualizar = "";
   }
 
   ngOnInit() {
@@ -141,7 +145,7 @@ export class NotesScreen {
         },
 
       }));
-      this.successLogin = "Nota Atualizada com sucesso!";
+      this.successAtualizar = "Nota Atualizada com sucesso!";
 
       await this.onNoteClick(this.notesSelecionado);
 
@@ -168,12 +172,33 @@ export class NotesScreen {
       titulo: '',
       descricao: '',
       imagemUrl: '',
-      usuarioId: 1, // ou o ID do usuário atual
+      usuarioid: 1, // ou o ID do usuário atual
       tags: '',
       lastEdit: this.dataHora
     };
 
     this.notesSelecionado = novaNota;
+
+  }
+
+    async excluirNote() {
+    const excluirNota: Inote = {
+      id: this.notesSelecionado.id,
+      usuarioid: this.notesSelecionado.usuarioid,
+      titulo: this.notesSelecionado.titulo,
+      descricao: this.notesSelecionado.descricao,
+      imagemUrl: this.notesSelecionado.imagemUrl,
+       tags: this.notesSelecionado.tags,
+      lastEdit: this.notesSelecionado.lastEdit
+    };
+  let excluirNoteResponse = await firstValueFrom(this.http.delete("http://localhost:3000/notas/" + excluirNota.id,{
+        headers: {
+          "content-type": "application/json"
+        },
+
+      }));
+      this.successExcluir = "Nota Excluída com sucesso!";
+
 
   }
 

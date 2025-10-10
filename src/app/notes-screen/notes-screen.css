@@ -71,14 +71,14 @@
 }
 
 .btn-create-notas button {
-  width: 15rem;
+  width: 10rem;
 }
 
 .btn-create-notas {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24vw;
+  width: 18vw;
 }
 
 .fa-power-off {
@@ -103,7 +103,7 @@
 }
 
 .menu-notas {
-  width: 24vw;
+  width: 15vw;
   height: 100vh;
   border-right: 1px solid rgba(128, 128, 128, 0.3);
   justify-items: center;
@@ -184,17 +184,32 @@
 }
 
 .btn-primary {
-  width: 250px;
-  height: 35px;
+  width: 50px;
+  height: 40px;
   border-radius: 9px;
 }
 
+.btn-secondary {
+  width: 50px;
+  height: 40px;
+  border-radius: 9px;
+}
+
+.btn-third {
+  width: 50px;
+  height: 40px;
+  border-radius: 9px;
+  background-color: red;
+}
+
+
 .tela {
-  width: 53vw;
-  border-right: 1px solid rgba(128, 128, 128, 0.3);
+  width: 45vw;
+  border: 1px solid rgba(128, 128, 128, 0.3);
   padding: 20px;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .tela-banner {
@@ -260,7 +275,7 @@
 .tela-description {
   margin-top: 10px;
   width: 100%;
-  height: 55vh;
+  height: 35vh;
   background-color: #f5f9fa;
   border-radius: 9px;
   font-size: 16px;
