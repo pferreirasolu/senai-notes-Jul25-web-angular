@@ -1,7 +1,7 @@
 <section class="section-container">
   <section class="nav">
     <div class="logotipo">
-      <img src="assets/imagens/logo.png" alt="">
+      <img src="imgs/logo.png" alt="">
     </div>
     <div class="nav-rigth" style="display:flex;">
       <div class="ipt-container" style="display: flex; gap: 15px;">
@@ -103,7 +103,9 @@
           <div>
             <button class="btn btn-primary" style="margin: 25px 0;" (click)="atualizaNotes()">
               <span class="badge text-bg-secondary">Save Note</span>
+             
             </button>
+             <span class="message-success" style="color: green;">{{successLogin}}</span>
           </div>
           <div class="bts2">
             <button type="button" class="btn btn-secondary btn-lg">Cancel</button>

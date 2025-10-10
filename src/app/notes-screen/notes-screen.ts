@@ -22,7 +22,7 @@ interface Inote {
 @Component({
   selector: 'app-notes-screen',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,RouterModule,FormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, FormsModule],
   templateUrl: './notes-screen.html',
   styleUrl: './notes-screen.css'
 })
@@ -31,6 +31,7 @@ export class NotesScreen {
 
   notes: Inote[];
   notesSelecionado: Inote;
+  successLogin: string;
 
   constructor(private http: HttpClient, private cd: ChangeDetectorRef) {
     this.notes = [];
@@ -38,6 +39,7 @@ export class NotesScreen {
     const agora = new Date();
     this.dataHora = agora.toLocaleDateString() + ' ' + agora.toLocaleTimeString();
 
+    this.successLogin = "";
   }
 
   ngOnInit() {
@@ -58,15 +60,15 @@ export class NotesScreen {
       console.log("Notes", response)
     }
 
-    this.cd.detectChanges();
+   this.cd.detectChanges();
 
   }
 
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
 
   dataHora: string = '';
-tagSelecionada ='';
-  tagsDisponiveis =[
+  tagSelecionada = '';
+  tagsDisponiveis = [
     "dev",
     "cooking",
     "work",
@@ -111,11 +113,11 @@ tagSelecionada ='';
       }
     }));
 
-    this.cd.detectChanges();
+
 
   }
 
-//////////////////////////////////////////
+  //////////////////////////////////////////
 
   async atualizaNotes() {
 
@@ -128,50 +130,52 @@ tagSelecionada ='';
 
     };
 
+  //  this.cd.detectChanges();
 
-    
-  const existe = this.notes.some(n => n.id === this.notesSelecionado.id);
+    const existe = this.notes.some(n => n.id === this.notesSelecionado.id);
 
-  if (existe) {
-    let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
-      headers: {
-        "content-type": "application/json"
-      },
+    if (existe) {
+      let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
+        headers: {
+          "content-type": "application/json"
+        },
 
-    }));
+      }));
+      this.successLogin = "Nota Atualizada com sucesso!";
 
-    await this.onNoteClick(this.notesSelecionado);
-  } else {
-       let newNoteEnviaResponse = await firstValueFrom(this.http.post("http://localhost:3000/notas", newNotes, {
-      headers: {
-        "content-type": "application/json"
-      },
+      await this.onNoteClick(this.notesSelecionado);
 
-    }));
+    } else {
+      let newNoteEnviaResponse = await firstValueFrom(this.http.post("http://localhost:3000/notas", newNotes, {
+        headers: {
+          "content-type": "application/json"
+        },
 
-    await this.onNoteClick(this.notesSelecionado);
+      }));
+      this.successLogin = "Nota cadastrada com sucesso!";
+      await this.onNoteClick(this.notesSelecionado);
 
-  }
+    }
 
 
-
+    await this.getNotes();
 
   }
 
   async createNote() {
-  const novaNota: Inote = {
-    id: Date.now(), // ou gere um ID temporário
-    titulo: '',
-    descricao: '',
-    imagemUrl: '',
-    usuarioId: 1, // ou o ID do usuário atual
-    tags: '',
-    lastEdit: this.dataHora
-  };
+    const novaNota: Inote = {
+      id: Date.now(), // ou gere um ID temporário
+      titulo: '',
+      descricao: '',
+      imagemUrl: '',
+      usuarioId: 1, // ou o ID do usuário atual
+      tags: '',
+      lastEdit: this.dataHora
+    };
 
-  this.notesSelecionado = novaNota;
-  this.cd.detectChanges();
-}
+    this.notesSelecionado = novaNota;
+
+  }
 
 
 }
