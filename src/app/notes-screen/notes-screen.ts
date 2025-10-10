@@ -130,8 +130,9 @@ tagSelecionada ='';
 
 
     
+  const existe = this.notes.some(n => n.id === this.notesSelecionado.id);
 
-
+  if (existe) {
     let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
       headers: {
         "content-type": "application/json"
@@ -140,8 +141,7 @@ tagSelecionada ='';
     }));
 
     await this.onNoteClick(this.notesSelecionado);
-
-
+  } else {
        let newNoteEnviaResponse = await firstValueFrom(this.http.post("http://localhost:3000/notas", newNotes, {
       headers: {
         "content-type": "application/json"
@@ -151,70 +151,27 @@ tagSelecionada ='';
 
     await this.onNoteClick(this.notesSelecionado);
 
-
-    //enviar mensagem para a IA responder.
-
-    // let respostaIAResponse = await firstValueFrom(this.http.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent", {
-    //   "contents": [
-    //     {
-    //       "parts": [
-    //         {
-    //           "text": this.userMessage.value +". Me de uma resposta objetiva"
-    //         }
-    //       ]
-
-    //     }
-    //   ]
-    // },{
-    //   headers:{
-    //     "content-type":"application;json",
-    //     "x-goog-api-key":"AIzaSyDV2HECQZLpWJrqCKEbuq7TT5QPKKdLOdo"
-    //   }
-    // })) as any;
-
-    // let newAnswerIA = {
-    //   chatId: this.chatSelecionado.id,
-    //   userId: "chatbot",
-    //   text: respostaIAResponse.candidates[0].content.parts[0].text
-    // }
-
-
-    // let newMessageIAResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/messages", newAnswerIA, {
-    //   headers: {
-    //     "content-type": "application/json",
-    //     "Authorization": "Bearer " + localStorage.getItem("meuToken")
-    //   },
-
-    // }));
-    //       await this.onChatClick(this.chatSelecionado);
-
-    //       this.userMessage.setValue("");
   }
 
 
-  //guilherme
-//    async salvarNotas(): Promise<void>{
-//     if(!this.salvarNotas){
-//       return;
-//     }
-//   }
-//   deslogar(){
-//   //1 alternativa
-//   localStorage.removeItem("meuToken");
-//   localStorage.removeItem("meuId");
 
-//   localStorage.clear();
-//   window.location.href = "LOgin";
-// }
 
-// ligarDesligarDarkMode(){
+  }
 
-//   this.darkMode = !this.darkMode; //o inverso do this.darkMode
+  async createNote() {
+  const novaNota: Inote = {
+    id: Date.now(), // ou gere um ID temporário
+    titulo: '',
+    descricao: '',
+    imagemUrl: '',
+    usuarioId: 1, // ou o ID do usuário atual
+    tags: '',
+    lastEdit: this.dataHora
+  };
 
-  
-//   document.body.classList.toggle("dark-mode", this.darkMode);
+  this.notesSelecionado = novaNota;
+  this.cd.detectChanges();
+}
 
-//   localStorage.setItem("darkMode", this.darkMode.toString());
-// }
 
 }

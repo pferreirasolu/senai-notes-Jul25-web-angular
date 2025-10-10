@@ -20,31 +20,34 @@
   <section class="menu-tela" style="display: flex;">
     <aside class="menu-notas">
       <div class="btn-create-notas">
-        <button class="btn btn-primary" style="margin: 25px 0;">
+        <button class="btn btn-primary" style="margin: 25px 0;" (click)="createNote()">
           + <span class="badge text-bg-secondary"> Create New Note</span>
         </button>
+
       </div>
+
 
       <div class="card-container">
         @for (note of notes; track $index) {
-          <button class="btn" (click)="onNoteClick(note)">
-            <div class="imgurl">
-              <img [src]="note.imagemUrl" alt="Imagem" />
+        <button class="btn" (click)="onNoteClick(note)">
+          <div class="imgurl">
+            <img [src]="note.imagemUrl" alt="Imagem" />
+          </div>
+          <div class="container-right">
+            <div class="card-title">{{ note.titulo }}</div>
+            <div class="card-bts">
+              @if (note.tags != null && note.tags.length > 0) {
+              <span>{{ note.tags[0] }}</span>
+              <span>{{ note.tags[1] }}</span>
+              }
             </div>
-            <div class="container-right">
-              <div class="card-title">{{ note.titulo }}</div>
-              <div class="card-bts">
-                @if (note.tags != null && note.tags.length > 0) {
-                  <span>{{ note.tags[0] }}</span>
-                  <span>{{ note.tags[1] }}</span>
-                }
-              </div>
-              <div class="card-date">03/10/2025 00:00:00</div>
-            </div>
-          </button>
+            <div class="card-date">03/10/2025 00:00:00</div>
+          </div>
+        </button>
         }
       </div>
     </aside>
+
 
 
     @if (notesSelecionado !=null){
@@ -60,17 +63,18 @@
 
       <div class="tela-title">
         <div class="create-title">
-          <textarea name="titleNote" id="title" placeholder="Enter a title..." [(ngModel)]="notesSelecionado.titulo"></textarea>
+          <textarea name="titleNote" id="title" placeholder="Enter a title..."
+            [(ngModel)]="notesSelecionado.titulo"></textarea>
         </div>
 
         <div class="edited-tags">
           <div class="edited" style="font-family: sans-serif;">
-    
+
             <span>Last Edited: {{ notesSelecionado.lastEdit }}</span>
             <select [(ngModel)]="tagSelecionada">
               <option value="">Selecione uma etiqueta</option>
               @for (tag of tagsDisponiveis; track $index) {
-                <option [value]="tag">{{ tag }}</option>
+              <option [value]="tag">{{ tag }}</option>
               }
             </select>
           </div>
@@ -79,10 +83,10 @@
             <img src="assets/imagens/last.png" alt="">
 
             @if (notesSelecionado.tags != null && notesSelecionado.tags.length > 0) {
-              <h5>Tags:
-                <span>{{ notesSelecionado.tags[0] }}</span>
-                <span>{{ notesSelecionado.tags[1] }}</span>
-              </h5>
+            <h5>Tags:
+              <span>{{ notesSelecionado.tags[0] }}</span>
+              <span>{{ notesSelecionado.tags[1] }}</span>
+            </h5>
             }
           </div>
         </div>
@@ -107,14 +111,9 @@
         </div>
       </div>
     </aside>
-  
+
     <aside class="tela-right"></aside> }
 
-    @if (notesSelecionado == null ){
-
-
-
-    }
 
 
   </section>
