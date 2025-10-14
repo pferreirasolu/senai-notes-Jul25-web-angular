@@ -48,8 +48,10 @@ export class NotesScreen {
   }
 
   async getNotes() {
-    let response = await firstValueFrom(this.http.get("http://localhost:3000/notas", {
+    let response = await firstValueFrom(this.http.get("https://senai-gpt-api.azurewebsites.net/senainotes/notesg6", {
       headers: {
+        "content-type": "application/json",
+       "Authorization": "Bearer " + localStorage.getItem("meuToken")
       }
     }))
 
@@ -135,9 +137,10 @@ export class NotesScreen {
     const existe = this.notes.some(n => n.id === this.notesSelecionado.id);
 
     if (existe) {
-      let newNoteResponse = await firstValueFrom(this.http.put("http://localhost:3000/notas/" + newNotes.id, newNotes, {
+      let newNoteResponse = await firstValueFrom(this.http.put("https://senai-gpt-api.azurewebsites.net/senainotes/notesg6/" + newNotes.id, newNotes, {
         headers: {
-          "content-type": "application/json"
+          "content-type": "application/json",
+          "Authorization": "Bearer " + localStorage.getItem("meuToken")
         },
 
       }));
@@ -146,9 +149,10 @@ export class NotesScreen {
       await this.onNoteClick(this.notesSelecionado);
 
     } else {
-      let newNoteEnviaResponse = await firstValueFrom(this.http.post("http://localhost:3000/notas", newNotes, {
+      let newNoteEnviaResponse = await firstValueFrom(this.http.post("https://senai-gpt-api.azurewebsites.net/senainotes/notesg6", newNotes, {
         headers: {
-          "content-type": "application/json"
+                  "content-type": "application/json",
+                   "Authorization": "Bearer " + localStorage.getItem("meuToken")
         },
 
       }));
@@ -164,11 +168,11 @@ export class NotesScreen {
 
   async createNote() {
     const novaNota: Inote = {
-      id: Date.now(), // ou gere um ID temporário
+      id: Date.now(),  
       titulo: '',
       descricao: '',
       imagemUrl: '',
-      usuarioId: 1, // ou o ID do usuário atual
+      usuarioId: 1,  
       tags: '',
       lastEdit: this.dataHora
     };
